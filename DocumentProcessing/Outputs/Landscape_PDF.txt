@@ -1,0 +1,13 @@
+Sub CompileReport(docName As String,outputFile As String)
+
+Sheet1.PageSetup.Orientation = xlLandscape
+Sheet1.Select
+sFile = outputFile & "_" & docName & ".pdf"
+
+ActiveSheet.PageSetup.PrintArea = "A1:K30"
+ActiveSheet.ExportAsFixedFormat Type:=xlTypePDF, _
+      Filename:=sFile, Quality:=xlQualityStandard, _
+      IncludeDocProperties:=True, IgnorePrintAreas:=False, _
+      OpenAfterPublish:=True
+
+End Sub
